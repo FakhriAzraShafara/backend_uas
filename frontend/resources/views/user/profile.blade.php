@@ -23,6 +23,7 @@
 
                         <h3 class="profile-username text-center">{{ Auth::user()->name }}</h3>
                         <p class="text-muted text-center">{{ Auth::user()->email }}</p>
+                    <div class="d-flex justify-content-around">
                         <a href="#" class="btn btn-info" data-toggle="modal" data-target="#password">Change
                             Password</a>
                         <a href="#" class="btn btn-info" data-toggle="modal" data-target="#image">Change
@@ -34,6 +35,7 @@
                             <a href="#" class="btn btn-info" data-toggle="modal" data-target="#updatedetail">Update
                                 detail</a>
                         @endif
+                    </div>
                     </div>
                 </div>
 

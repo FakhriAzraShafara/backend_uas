@@ -8,5 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Agama extends Model
 {
     use HasFactory;
-    protected $guarded=['id'];
+
+    protected $guarded = ['id'];
+
+    public function detail_data()
+    {
+        return $this->hasOne(Detaildata::class, 'id_agama');
+    }
 }

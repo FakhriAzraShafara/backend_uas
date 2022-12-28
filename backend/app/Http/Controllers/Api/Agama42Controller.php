@@ -58,6 +58,10 @@ class Agama42Controller extends Controller
     {
         # code...
         $agama = Agama::findOrFail($id);
+        if ($agama->detail_data != null) {
+            # code...
+            return new FormatResource(false, 'gagal', null);
+        }
         $agama->delete();
         if ($agama) {
             return new FormatResource(true, 'berhasil', $agama);

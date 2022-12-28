@@ -76,7 +76,11 @@
                                 <tbody>
                                 </tbody>
                             </table>
-                            <a href="/deleteUser42/{{ $user['id'] }}" class="btn btn-danger">Hapus</a>
+                            <form action="/user42/{{ $user['id'] }}" method="post">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" class="btn btn-danger">Hapus</button>
+                            </form>
                         </div>
                     </div>
                 </div>

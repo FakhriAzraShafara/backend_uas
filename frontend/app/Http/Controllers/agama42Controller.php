@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Agama;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
@@ -66,6 +67,14 @@ class Agama42Controller extends Controller
         # code...
         $client = new Client();
         $response = $client->request('delete', 'http://localhost:8000/api/agama42/' . $id);
-        return redirect('/agama42')->with('success', 'Berhasil Menghapus');
+        $body = $response->getBody();
+
+        $data = json_decode($body,true);
+        if ($data['success']) {
+            # code...
+            return redirect('/agama42')->with('success', 'Berhasil Menghapus');
+        }
+        return redirect('/agama42')->with('error', 'Gagal Menghapus, Data agama sedang digunakan');
+
     }
 }
